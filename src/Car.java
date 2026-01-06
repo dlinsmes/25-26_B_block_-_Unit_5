@@ -9,8 +9,9 @@ public class Car {
     //each specific car
 
     int doors;
-    String color;
     int seats;
+
+    //after today, all instance variables should always be private
 
     //a car's number of miles should only be allowed to go up
     //(can't go down or go negative)
@@ -18,8 +19,10 @@ public class Car {
     //to outside classes
     //-you can only change/view this variable within this class
     private int miles;
+    private String color;
 
-    String brand;
+
+    private String brand;
 
     //allow outside classes to get read access to
     //the private variable
@@ -45,4 +48,31 @@ public class Car {
 
     //write a way to control a car's color to only
     //red, blue, black, white
+
+    public String getColor() { return color; }
+
+    //mutator methods - let outside classes change/mutate private
+    //variables in a controlled way
+    //aka set methods or setters (addMiles functions similarly as a mutator)
+    //void return
+    //method name is typically setVariable (not necessarily a rule)
+    //parameter type matches variable type
+    public void setColor(String newColor) {
+        if (newColor.equals("red"))
+            color = newColor;
+        else if (newColor.equals("blue"))
+            color = newColor;
+        else if (newColor.equals("black"))
+            color = newColor;
+        else if (newColor.equals("white"))
+            color = newColor;
+        else
+            System.out.println("can't make the car " + newColor);
+    }
+
+    public String getBrand() { return brand; }
+
+    //don't necessarily need controls for mutator methods if you just want to allow
+    // the outside class to set the value
+    public void setBrand(String newBrand) {brand = newBrand; }
 }
