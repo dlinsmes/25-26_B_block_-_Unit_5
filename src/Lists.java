@@ -67,6 +67,78 @@ public class Lists {
         //words.remove("pumpkin"); - works but need to be familiar
         //with remove(index)
 
+        //doesn't work bc when you remove from index 0,
+        //indexing in the list will automatically update so
+        //the second pumpkin is now index 0
+        //-but the loop iterates i from 0 to 1 so then the
+        //new pumpkin at index 0 won't be checked and won't
+        //be removed
+//        for (int i = 0; i < words.size(); i++) {
+//            if (words.get(i).equals("pumpkin")) {
+//                words.remove(i);
+//            }
+//        }
+//
+//        System.out.println(words);
+
+        for (int i = 0; i < words.size(); i++) {
+            if (words.get(i).equals("pumpkin")) {
+                words.remove(i);
+                //counteract the i++ to keep the var at
+                //the same value again
+                i--;
+            }
+        }
+
+        System.out.println(words);
+
+        words.add(0, "pumpkin");
+        words.add(0, "pumpkin");
+        words.add("pumpkin");
+        words.add("pumpkin");
+
+        //also works bc there won't be any other occurrences
+        //to the right of the one that gets removed when you
+        //go through the list backwards
+        for (int i = words.size() - 1; i >= 0; i--) {
+            if (words.get(i).equals("pumpkin"))
+                words.remove(i);
+        }
+
+        System.out.println(words);
+
+        //using a for-each loop to remove from a list
+        //doesn't work - not tracking indices in the for-each loop
+
+        //ArrayLists can only hold objects, not primitive data
+        //primitive types: int, double, booleans
+        //ArrayList<int> numbers;
+
+        //workaround - java has wrapper classes to
+        //allow you to make objects of primitive data
+        ArrayList<Integer> numbers = new ArrayList<Integer> ();
+        numbers.add(8);
+
+        //make a blackjackplayer object and
+        //give them 2 cards
+
+        BlackjackPlayer p1 = new BlackjackPlayer("anna");
+        System.out.println(p1);
+
+
+        Card c = new Card("spades", 7);
+
+        //addCard() is defined to accept a Card
+        //object as an argument
+        p1.addCard(c);
+
+        System.out.println(p1);
+
+        Card c2 = new Card("hearts", 13);
+        p1.addCard(c2);
+
+        System.out.println(p1);
+
 
     }
 }
