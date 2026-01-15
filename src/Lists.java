@@ -134,8 +134,11 @@ public class Lists {
 
         System.out.println(p1);
 
-        Card c2 = new Card("hearts", 13);
+        Card c2 = new Card("hearts", 1);
         p1.addCard(c2);
+
+        Card c3 = new Card("spades", 11);
+        p1.addCard(c3);
 
         System.out.println(p1);
 
